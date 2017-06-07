@@ -9,8 +9,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { MatchComponent } from './components/match/match.component';
-
 import { ProfileCardComponent } from './components/profile-card/profile-card.component';
+
+import { AuthenticationService } from './services/authentication.service';
 
 import { MaterializeModule } from 'ng2-materialize';
 
@@ -39,7 +40,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     MaterializeModule.forRoot()
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,26 +1,53 @@
-<div class="row">
-    <form class="col s6 offset-s3">
-      <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-          <label for="first_name">First Name</label>
-        </div>
-        <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate">
-          <label for="last_name">Last Name</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="email" type="email" class="validate">
-          <label for="email">Email</label>
-        </div>
-      </div>
-       <div class="row">
-        <div class="input-field col s12">
-          <input id="password" type="password" class="validate">
-          <label for="password">Password</label>
-        </div>
-      </div>
-    </form>
+
+<mz-modal [fixedFooter]="true">
+  <mz-modal-header>
+    Signup
+  </mz-modal-header>
+  <mz-modal-content>
+    <div class = "row">
+    <mz-input-container class="col s12">
+      <i mz-icon-mdi mz-input-prefix
+        [icon]="'mail'">
+      </i>
+      <input mz-input
+        [label]="'Email'"
+        [validate]="true"
+        [dataError]="'Email is invalid'"
+        [dataSuccess]="'Email is valid'"
+        id="email-input"
+        placeholder="Enter your email"
+        type="email">
+    </mz-input-container>
+    <mz-input-container class="col s6">
+      <i mz-icon-mdi mz-input-prefix
+        [icon]="'mail'">
+      </i>
+      <input mz-input
+        [label]="'Email'"
+        [validate]="true"
+        [dataError]="'Email is invalid'"
+        [dataSuccess]="'Email is valid'"
+        id="email-input"
+        placeholder="Enter your email"
+        type="email">
+    </mz-input-container>
+    <mz-input-container class="col s6">
+      <i mz-icon-mdi mz-input-prefix
+        [icon]="'mail'">
+      </i>
+      <input mz-input
+        [label]="'Email'"
+        [validate]="true"
+        [dataError]="'Email is invalid'"
+        [dataSuccess]="'Email is valid'"
+        id="email-input"
+        placeholder="Enter your email"
+        type="email">
+    </mz-input-container>
   </div>
+  </mz-modal-content>
+  <mz-modal-footer>
+    <button mz-button [flat]="true" mz-modal-close>Disagree</button>
+    <button mz-button [flat]="true" mz-modal-close>Agree</button>
+  </mz-modal-footer>
+</mz-modal>
