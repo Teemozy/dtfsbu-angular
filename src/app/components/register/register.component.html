@@ -1,53 +1,68 @@
 
-<mz-modal [fixedFooter]="true">
+<mz-modal [fixedFooter]="true" [options]="modalOptions">
   <mz-modal-header>
-    Signup
+    Create your account
   </mz-modal-header>
   <mz-modal-content>
-    <div class = "row">
-    <mz-input-container class="col s12">
-      <i mz-icon-mdi mz-input-prefix
-        [icon]="'mail'">
-      </i>
-      <input mz-input
-        [label]="'Email'"
-        [validate]="true"
-        [dataError]="'Email is invalid'"
-        [dataSuccess]="'Email is valid'"
-        id="email-input"
-        placeholder="Enter your email"
-        type="email">
-    </mz-input-container>
-    <mz-input-container class="col s6">
-      <i mz-icon-mdi mz-input-prefix
-        [icon]="'mail'">
-      </i>
-      <input mz-input
-        [label]="'Email'"
-        [validate]="true"
-        [dataError]="'Email is invalid'"
-        [dataSuccess]="'Email is valid'"
-        id="email-input"
-        placeholder="Enter your email"
-        type="email">
-    </mz-input-container>
-    <mz-input-container class="col s6">
-      <i mz-icon-mdi mz-input-prefix
-        [icon]="'mail'">
-      </i>
-      <input mz-input
-        [label]="'Email'"
-        [validate]="true"
-        [dataError]="'Email is invalid'"
-        [dataSuccess]="'Email is valid'"
-        id="email-input"
-        placeholder="Enter your email"
-        type="email">
-    </mz-input-container>
-  </div>
+      <br>
+      <mz-input-container class = "row">
+        <input mz-input
+          [label]="'Stony Brook Email'"
+          [validate]="true"
+          [dataError]="'Email is not a valid stony brook email'"
+          [dataSuccess]="'Email is valid'"
+          [class.invalid]="!validEmail"
+          [class.invalid]="validEmail"
+          pattern="[a-z0-9._%+-]+@stonybrook.edu$"
+          id="email-input"
+          placeholder="john.cena@stonybrook.edu"
+          type="email">
+      </mz-input-container>
+
+      <mz-input-container>
+        <input mz-input
+          [label]="'Create a password'"
+          [validate]="true"
+          id="password-input"
+          placeholder="Password"
+          type="password">
+      </mz-input-container>
+
+      <mz-input-container>
+        <input mz-input
+          [label]="'Confirm your password'"
+          [validate]="true"
+          id="password-confirm-input"
+          placeholder="Password"
+          type="password">
+      </mz-input-container>
+  
+      <mz-input-container class="col s6 m6">
+        <input mz-input
+          [label]="'First Name'"
+          [validate]="true"
+          id="first-name-input"
+          placeholder="John">
+      </mz-input-container>
+      <mz-input-container class="col s6 m6">
+        <input mz-input
+          [label]="'Last Name'"
+          [validate]="true"
+          id="last-name-input"
+          placeholder="Cena">
+      </mz-input-container>
+
+      <div class="switch center-align">
+        <label>
+          Male
+          <input type="checkbox">
+          <span class="lever"></span>
+          Female
+        </label>
+      </div>
+
   </mz-modal-content>
   <mz-modal-footer>
-    <button mz-button [flat]="true" mz-modal-close>Disagree</button>
-    <button mz-button [flat]="true" mz-modal-close>Agree</button>
+    <button mz-button [flat]="true" mz-modal-close>Signup</button>
   </mz-modal-footer>
 </mz-modal>

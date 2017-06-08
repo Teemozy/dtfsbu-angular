@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MzModalService } from 'ng2-materialize';
 import { RegisterComponent } from '../register/register.component';
+import { LoginComponent } from '../login/login.component';
+
+enum modalIndex  {
+    register  = 0,
+    login     = 1,
+}
+
 
 @Component({
   selector: 'app-navbar',
@@ -9,14 +16,23 @@ import { RegisterComponent } from '../register/register.component';
 })
 export class NavbarComponent implements OnInit {
 
+
   constructor(private modalService: MzModalService) { }
 
   ngOnInit() {
 
   }
 
-  openServiceModal() {
-    this.modalService.open(RegisterComponent);
+  openServiceModal(index) {
+    switch(index){
+      case modalIndex.register:
+        this.modalService.open(RegisterComponent);
+        break;
+      case modalIndex.login:
+        this.modalService.open(LoginComponent);
+        break;
+    }
+    
   }
 
 }

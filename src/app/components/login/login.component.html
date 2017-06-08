@@ -1,3 +1,35 @@
-<p>
-  login works!
-</p>
+
+<mz-modal [fixedFooter]="true" [options]="modalOptions">
+  <mz-modal-header>
+  Login
+  </mz-modal-header>
+  <mz-modal-content>
+      <br>
+      <mz-input-container class = "row">
+        <input mz-input
+          [label]="'Enter your Stony Brook Email'"
+          [validate]="true"
+          [dataError]="'Email is not a valid stony brook email'"
+          [dataSuccess]="'Email is valid'"
+          [class.invalid]="!validEmail"
+          [class.invalid]="validEmail"
+          pattern="[a-z0-9._%+-]+@stonybrook.edu$"
+          id="email-input"
+          placeholder="john.cena@stonybrook.edu"
+          type="email">
+      </mz-input-container>
+
+      <mz-input-container>
+        <input mz-input
+          [label]="'Enter password'"
+          [validate]="true"
+          id="password-input"
+          placeholder="Password"
+          type="password">
+      </mz-input-container>
+
+  </mz-modal-content>
+  <mz-modal-footer>
+    <button mz-button [flat]="true" mz-modal-close>Login</button>
+  </mz-modal-footer>
+</mz-modal>
