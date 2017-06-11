@@ -12,6 +12,7 @@ import { MatchComponent } from './components/match/match.component';
 import { ProfileCardComponent } from './components/profile-card/profile-card.component';
 
 import { AuthenticationService } from './services/authentication.service';
+import { ValidationService } from './services/validation.service';
 
 import { MaterializeModule } from 'ng2-materialize';
 
@@ -40,7 +41,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     MaterializeModule.forRoot()
   ],
-  providers: [AuthenticationService],
+  providers: [
+  ValidationService, 
+  AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

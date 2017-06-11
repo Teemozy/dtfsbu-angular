@@ -13,6 +13,7 @@
           [dataSuccess]="'Email is valid'"
           [class.invalid]="!validEmail"
           [class.invalid]="validEmail"
+          [(ngModel)]="email"
           pattern="[a-z0-9._%+-]+@stonybrook.edu$"
           id="email-input"
           placeholder="john.cena@stonybrook.edu"
@@ -23,6 +24,7 @@
         <input mz-input
           [label]="'Create a password'"
           [validate]="true"
+          [(ngModel)]="password"
           id="password-input"
           placeholder="Password"
           type="password">
@@ -32,6 +34,7 @@
         <input mz-input
           [label]="'Confirm your password'"
           [validate]="true"
+          [(ngModel)]="passwordConfirm"
           id="password-confirm-input"
           placeholder="Password"
           type="password">
@@ -41,6 +44,7 @@
         <input mz-input
           [label]="'First Name'"
           [validate]="true"
+          [(ngModel)]="firstName"
           id="first-name-input"
           placeholder="John">
       </mz-input-container>
@@ -48,6 +52,7 @@
         <input mz-input
           [label]="'Last Name'"
           [validate]="true"
+          [(ngModel)]="lastName"
           id="last-name-input"
           placeholder="Cena">
       </mz-input-container>
@@ -55,7 +60,7 @@
       <div class="switch center-align">
         <label>
           Male
-          <input type="checkbox">
+          <input type="checkbox" [(ngModel)]="gender">
           <span class="lever"></span>
           Female
         </label>
@@ -63,6 +68,6 @@
 
   </mz-modal-content>
   <mz-modal-footer>
-    <button mz-button [flat]="true" mz-modal-close>Signup</button>
+    <button mz-button [flat]="true"  (click)="onRegisterSubmit()" mz-modal-close>Signup</button>
   </mz-modal-footer>
 </mz-modal>
