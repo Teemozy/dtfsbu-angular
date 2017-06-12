@@ -27,7 +27,8 @@
           [(ngModel)]="password"
           id="password-input"
           placeholder="Password"
-          type="password">
+          type="password" 
+          required validateEqual="passwordConfirm" reverse="true">
       </mz-input-container>
 
       <mz-input-container>
@@ -37,7 +38,8 @@
           [(ngModel)]="passwordConfirm"
           id="password-confirm-input"
           placeholder="Password"
-          type="password">
+          type="password"
+          required validateEqual="password">
       </mz-input-container>
   
       <mz-input-container class="col s6 m6">
@@ -65,7 +67,6 @@
           Female
         </label>
       </div>
-
   </mz-modal-content>
   <mz-modal-footer>
     <button mz-button [flat]="true"  (click)="onRegisterSubmit()" mz-modal-close>Signup</button>
