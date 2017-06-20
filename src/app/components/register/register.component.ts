@@ -35,15 +35,31 @@ export class RegisterComponent extends MzBaseModal{
   onRegisterSubmit(){
     const user = {
       "email": this.email,
-      "password": this.password,
       "passwordConfirm": this.passwordConfirm,
+      "password": this.password,
       "firstName": this.firstName,
       "lastName": this.lastName,
     }
 
-    this.validationService.validateRegisterFields(user, function(err){
+    this.validationService.validateRegisterFields(user, (err) => {
       if(err) throw err;
-    })
+    });
+
+    this.authenticationService.registerUser(user)
+      .subscribe(data => {
+        if(data.success){
+          //Login after register
+          if(this.authenticationService.authenticateUser(user)){
+            console.log('WE IN NIGGA');
+          }
+        }
+        else {
+          console.log(data.msg);
+        }
+      }, err =>{
+        console.log(err);
+      });
+    
   }
 }
 
