@@ -20,9 +20,6 @@ export class RegisterComponent extends MzBaseModal{
   lastName: string;
   gender: any; 
 
-
-
-  //TODO FIX THIS BULLSHIT
   constructor(private validationService: ValidationService,
               private authenticationService: AuthenticationService) { super(); }
 
@@ -48,10 +45,7 @@ export class RegisterComponent extends MzBaseModal{
     this.authenticationService.registerUser(user)
       .subscribe(data => {
         if(data.success){
-          //Login after register
-          if(this.authenticationService.authenticateUser(user)){
-            console.log('WE IN NIGGA');
-          }
+          this.modalComponent.close();
         }
         else {
           console.log(data.msg);

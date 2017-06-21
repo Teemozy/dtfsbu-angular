@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MzModalService } from 'ng2-materialize';
 import { RegisterComponent } from '../register/register.component';
 import { LoginComponent } from '../login/login.component';
+import { AuthenticationService } from '../../services/authentication.service';
 
 enum modalIndex  {
     register  = 0,
@@ -14,13 +15,13 @@ enum modalIndex  {
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
 
+  constructor(private modalService: MzModalService,
+              private authenticationService: AuthenticationService){}
 
-  constructor(private modalService: MzModalService) { }
-
-  ngOnInit() {
-
+  printToken(){
+    console.log("Token" + this.authenticationService.authToken);
   }
 
   openServiceModal(index) {
@@ -32,7 +33,7 @@ export class NavbarComponent implements OnInit {
         this.modalService.open(LoginComponent);
         break;
     }
-    
+ 
   }
 
 }

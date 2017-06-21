@@ -30,10 +30,31 @@ export class AuthenticationService {
     .map(res => res.json());
   }
 
+  logoutUser(){
+    this.authToken = null;
+    this.user = null;
+    localStorage.clear();
+  }
+
   saveUserData(token, user){
     localStorage.setItem('id_token' , token);
     localStorage.setItem('user', JSON.stringify(user));
     this.authToken = token;
     this.user = user;
+  }
+
+  loadUserData(){
+    this.authToken = localStorage.getItem('id_token');
+    this.user = localStorage.getItem('user');
+  }
+
+  isLoggedIn(){
+    
+    this.loadUserData();
+    if(localStorage.getItem('id_token')){
+      return true;
+    } else {
+      return false;
+    }
   }
 }

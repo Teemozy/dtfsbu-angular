@@ -2,8 +2,12 @@
     <div class="nav-wrapper container">
       <a [routerLink]="['/match']" id="logo-container" class="brand-logo">DTF.SBU</a>
       <ul class="right hide-on-med-and-down">
-        <li><a class="waves-effect waves-light btn"  (click)="openServiceModal(0);">Signup</a></li>
-        <li><a class="waves-effect waves-light btn"  (click)="openServiceModal(1);">Login</a></li>
+        <!-- Logged In-->
+        <li><a class="waves-effect waves-light btn"  *ngIf="!authenticationService.isLoggedIn" (click)="openServiceModal(0);">Signup</a></li>
+        <li><a class="waves-effect waves-light btn" *ngIf="!authenticationService.isLoggedIn" (click)="openServiceModal(1);">Login</a></li>
+
+        <!-- Logged Out-->
+        <li><a class="waves-effect waves-light btn" *ngIf="authenticationService.isLoggedIn" (click)="printToken();">Logout</a></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">

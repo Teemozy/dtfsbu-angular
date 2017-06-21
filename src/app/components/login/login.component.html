@@ -13,6 +13,7 @@
           [dataSuccess]="'Email is valid'"
           [class.invalid]="!validEmail"
           [class.invalid]="validEmail"
+          [(ngModel)]="email"
           pattern="[a-z0-9._%+-]+@stonybrook.edu$"
           id="email-input"
           placeholder="john.cena@stonybrook.edu"
@@ -23,6 +24,7 @@
         <input mz-input
           [label]="'Enter password'"
           [validate]="true"
+          [(ngModel)]="password"
           id="password-input"
           placeholder="Password"
           type="password">
@@ -30,6 +32,6 @@
 
   </mz-modal-content>
   <mz-modal-footer>
-    <button mz-button [flat]="true" mz-modal-close>Login</button>
+    <button mz-button [flat]="true" (click)="onLoginSubmit()">Login</button>
   </mz-modal-footer>
 </mz-modal>
