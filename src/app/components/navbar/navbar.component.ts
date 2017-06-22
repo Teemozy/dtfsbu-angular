@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router'
 import { MzModalService } from 'ng2-materialize';
 import { RegisterComponent } from '../register/register.component';
 import { LoginComponent } from '../login/login.component';
@@ -18,10 +19,13 @@ enum modalIndex  {
 export class NavbarComponent {
 
   constructor(private modalService: MzModalService,
-              private authenticationService: AuthenticationService){}
+              private authenticationService: AuthenticationService,
+              private router: Router){}
 
-  printToken(){
-    console.log("Token" + this.authenticationService.authToken);
+
+  logoutUser(){
+    this.authenticationService.logoutUser();
+    this.router.navigateByUrl('welcomeboard');
   }
 
   openServiceModal(index) {

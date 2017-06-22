@@ -11,6 +11,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { MatchComponent } from './components/match/match.component';
 import { ProfileCardComponent } from './components/profile-card/profile-card.component';
+import { WelcomeBoardComponent } from './components/welcome-board/welcome-board.component';
 
 //Serivces
 import { AuthenticationService } from './services/authentication.service';
@@ -26,13 +27,15 @@ import { MaterializeModule } from 'ng2-materialize';
 const appRoutes: Routes = [
   {path:'register', component: RegisterComponent},
   {path:'login', component: LoginComponent},
-  {path:'match', component: MatchComponent}
+  {path:'match', component: MatchComponent},
+  {path:'welcomeboard', component: WelcomeBoardComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
+    WelcomeBoardComponent,
     RegisterComponent,
     LoginComponent,
     ProfileCardComponent,

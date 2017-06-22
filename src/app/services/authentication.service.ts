@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
+import { tokenNotExpired } from 'angular2-jwt';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -7,6 +8,7 @@ const backendUrl = 'http://localhost:3000';
 
 @Injectable()
 export class AuthenticationService {
+
   authToken: string;
   user: any;
   
@@ -27,7 +29,9 @@ export class AuthenticationService {
 
     return this.http
     .post( backendUrl + '/users/authenticate', user, {headers: headers})
-    .map(res => res.json());
+    .map(res => res.json())
+    .subscribe(data => this.saveUserData(data.token, user), 
+               err =>  console.log(err));
   }
 
   logoutUser(){
@@ -49,12 +53,11 @@ export class AuthenticationService {
   }
 
   isLoggedIn(){
-    
-    this.loadUserData();
-    if(localStorage.getItem('id_token')){
+    if( !tokenNotExpired() && localStorage.getItem('id_token')){
       return true;
     } else {
       return false;
     }
   }
+  
 }

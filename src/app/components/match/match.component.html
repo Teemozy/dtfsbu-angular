@@ -1,11 +1,13 @@
-<div class = "row">
-      <ul>
-        <li *ngFor="let match of matches">
-          <app-profile-card 
-          [name] = "match.name" 
-          [description] = "match.description" 
-          [imgUrl] = "match.imgUrl">
-          </app-profile-card>
-        </li>
-      </ul>
-  </div>
+<div class = "container">
+  <div class = "row">
+        <ul>
+          <li *ngFor="let match of matches">
+            <app-profile-card 
+            [name] = "match.name" 
+            [description] = "match.description" 
+            [imgUrl] = "match.imgUrl">
+            </app-profile-card>
+          </li>
+        </ul>
+    </div>
+</div>

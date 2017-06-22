@@ -23,13 +23,6 @@ export class LoginComponent extends MzBaseModal {
       "email": this.email,
       "password": this.password
     }
-
-    this.authenticationService.authenticateUser(user).subscribe( data => {
-      if (data.success){
-        console.log('Logged in using token:' + data.token);
-        this.authenticationService.saveUserData(data.token, user);
-        this.modalComponent.close();
-      }
-    });
+    this.authenticationService.authenticateUser(user);
   }
 }
