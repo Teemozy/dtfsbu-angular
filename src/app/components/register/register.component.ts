@@ -38,6 +38,7 @@ export class RegisterComponent extends MzBaseModal{
       "password": this.password,
       "firstName": this.firstName,
       "lastName": this.lastName,
+      "gender": this.gender
     }
 
     this.validationService.validateRegisterFields(user, (err) => {
