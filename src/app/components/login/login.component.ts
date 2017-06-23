@@ -1,4 +1,5 @@
 import { Component} from '@angular/core';
+import { Router } from '@angular/router'
 import { MzBaseModal, MzModalComponent } from 'ng2-materialize';
 import { ValidationService } from '../../services/validation.service';
 import { AuthenticationService } from '../../services/authentication.service';
@@ -15,7 +16,8 @@ export class LoginComponent extends MzBaseModal {
   password: string;
 
   constructor(private validationService: ValidationService,
-              private authenticationService: AuthenticationService) { super(); }
+              private authenticationService: AuthenticationService,
+              private router: Router) { super(); }
 
 
   onLoginSubmit(){
@@ -23,6 +25,9 @@ export class LoginComponent extends MzBaseModal {
       "email": this.email,
       "password": this.password
     }
-    this.authenticationService.authenticateUser(user);
+    this.authenticationService.authenticateUser(user, () => {
+      this.router.navigateByUrl('match');
+      this.modalComponent.close();
+    });
   }
 }

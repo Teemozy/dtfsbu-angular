@@ -23,15 +23,21 @@ export class AuthenticationService {
     .map(res => res.json())
   }
 
-  authenticateUser(user){
+  authenticateUser(user, onLoginCallBack){
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
     return this.http
     .post( backendUrl + '/users/authenticate', user, {headers: headers})
     .map(res => res.json())
-    .subscribe(data => this.saveUserData(data.token, user), 
-               err =>  console.log(err));
+    .subscribe(data => {
+      //Check if we have token then save and callback
+      let token = data.token;
+      if(token){
+        this.saveUserData(token, user); 
+        onLoginCallBack();
+      }
+    }, err =>  console.log(err));
   }
 
   logoutUser(){

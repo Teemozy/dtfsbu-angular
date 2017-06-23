@@ -28,7 +28,8 @@ const appRoutes: Routes = [
   {path:'register', component: RegisterComponent},
   {path:'login', component: LoginComponent},
   {path:'match', component: MatchComponent},
-  {path:'welcomeboard', component: WelcomeBoardComponent}
+  {path:'welcomeboard', component: WelcomeBoardComponent,},
+  {path: '', redirectTo: '/welcomeboard', pathMatch: 'full'}
 ];
 
 @NgModule({

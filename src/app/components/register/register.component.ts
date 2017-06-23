@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router'
 import { MzBaseModal, MzModalComponent } from 'ng2-materialize';
 import { ValidationService } from '../../services/validation.service';
 import { AuthenticationService } from '../../services/authentication.service';
@@ -21,7 +22,8 @@ export class RegisterComponent extends MzBaseModal{
   gender: any; 
 
   constructor(private validationService: ValidationService,
-              private authenticationService: AuthenticationService) { super(); }
+              private authenticationService: AuthenticationService,
+              private router: Router) { super(); }
 
 
   public modalOptions: Materialize.ModalOptions = {
@@ -45,6 +47,7 @@ export class RegisterComponent extends MzBaseModal{
     this.authenticationService.registerUser(user)
       .subscribe(data => {
         if(data.success){
+          this.router.navigateByUrl('match');
           this.modalComponent.close();
         }
         else {
