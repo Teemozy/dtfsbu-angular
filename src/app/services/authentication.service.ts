@@ -4,15 +4,18 @@ import { tokenNotExpired } from 'angular2-jwt';
 
 import 'rxjs/add/operator/toPromise';
 
+
 const backendUrl = 'http://localhost:3000';
 
 @Injectable()
 export class AuthenticationService {
 
+  
+
   authToken: string;
   user: any;
   
-  constructor(private http:Http) { }
+  constructor( private http:Http ) { }
 
   registerUser(user){
     let headers = new Headers();
@@ -64,6 +67,14 @@ export class AuthenticationService {
     } else {
       return false;
     }
+  }
+
+  authenticatedGet(url){
+    let headers = new Headers();
+    headers.append('token', localStorage.getItem('id_token'));
+    headers.append('Content-Type', 'application/json');
+ 
+    return this.http.get( backendUrl + url, { headers: headers})
   }
   
 }

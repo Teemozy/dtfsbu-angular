@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BackendService } from '../../services/backend.service';
 
 @Component({
   selector: 'app-match',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class MatchComponent implements OnInit {
   matches: any[];
 
-  constructor() { 
+  constructor(private backendService: BackendService) { 
     this.matches =[];
     this.matches.push({name:"Timofej Jermolaev", description: "IM A BEAST", imgUrl:"https://avatars2.githubusercontent.com/u/11130291?v=3&s=460"});
     this.matches.push({name:"Chad", description: "I'm an evil beast", imgUrl:"https://images.pexels.com/photos/159655/quarterback-american-football-football-player-passer-159655.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb"});
@@ -20,6 +21,11 @@ export class MatchComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.backendService.getMatches().subscribe( data => {
+      data.forEach(element => {
+        console.log(element);
+      });
+    }, err => console.log(err));
   }
 
 }

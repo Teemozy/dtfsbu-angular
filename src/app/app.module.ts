@@ -15,6 +15,7 @@ import { WelcomeBoardComponent } from './components/welcome-board/welcome-board.
 
 //Serivces
 import { AuthenticationService } from './services/authentication.service';
+import { BackendService } from './services/backend.service';
 import { ValidationService } from './services/validation.service';
 
 //Directives
@@ -53,7 +54,8 @@ const appRoutes: Routes = [
   ],
   providers: [
   ValidationService, 
-  AuthenticationService],
+  AuthenticationService,
+  BackendService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
