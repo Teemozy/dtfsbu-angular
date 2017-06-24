@@ -3,7 +3,7 @@
         <ul>
           <li *ngFor="let match of matches">
             <app-profile-card 
-            [name] = "match.name" 
+            [name] = "match.firstName + ' ' + match.lastName" 
             [description] = "match.description" 
             [imgUrl] = "match.imgUrl">
             </app-profile-card>
