@@ -3,11 +3,13 @@
       <a [routerLink]="['/match']" id="logo-container" class="brand-logo" *ngIf="authenticationService.isLoggedIn()" >DTF.SBU</a>
       <a [routerLink]="['/welcomeboard']" id="logo-container" class="brand-logo" *ngIf="!authenticationService.isLoggedIn()" >DTF.SBU</a>
       <ul class="right hide-on-med-and-down">
-        <!-- Logged In-->
+
+        <!-- Logged Out-->
         <li><a class="waves-effect waves-light btn"  (click)="openServiceModal(0);" *ngIf="!authenticationService.isLoggedIn()" >Signup</a></li>
         <li><a class="waves-effect waves-light btn" (click)="openServiceModal(1);" *ngIf="!authenticationService.isLoggedIn()" >Login</a></li>
 
-        <!-- Logged Out-->
+        <!-- Logged In-->
+        <li><a class="waves-effect waves-light btn" (click)="openServiceModal(2);" *ngIf="authenticationService.isLoggedIn()" >Profile</a></li>
         <li><a class="waves-effect waves-light btn" (click)="logoutUser();" *ngIf="authenticationService.isLoggedIn()" >Logout</a></li>
       </ul>
 

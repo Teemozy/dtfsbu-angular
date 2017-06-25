@@ -13,7 +13,6 @@ import { AuthenticationService } from '../../services/authentication.service';
 })
 export class RegisterComponent extends MzBaseModal{
 
-
   email: string;
   password: string;
   passwordConfirm: string;
@@ -21,14 +20,15 @@ export class RegisterComponent extends MzBaseModal{
   lastName: string;
   gender: any; 
 
+
   constructor(private validationService: ValidationService,
               private authenticationService: AuthenticationService,
               private router: Router) { super(); }
 
 
   public modalOptions: Materialize.ModalOptions = {
-    inDuration: 300, // Transition in duration
-    outDuration: 300, // Transition out duration
+    inDuration: 300, 
+    outDuration: 300
   };
 
   onRegisterSubmit(){

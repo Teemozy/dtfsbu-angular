@@ -1,0 +1,25 @@
+
+<mz-modal [fixedFooter]="true" [options]="modalOptions">
+  <mz-modal-header>
+  Update Profile
+  </mz-modal-header>
+  <mz-modal-content>
+
+    <div class="row">
+      <div class="card">
+        <div class="card-image">
+          <img src="http://www.skyovnis.com/wp-content/uploads/2014/12/Profile-sky-ovnis.jpg">
+        </div>
+      </div>
+    </div>
+
+    <div class="input-field col s12">
+          <textarea id="textarea1" class="materialize-textarea"></textarea>
+          <label for="textarea1">Textarea</label>
+    </div>
+
+  </mz-modal-content>
+  <mz-modal-footer>
+    <button mz-button [flat]="true" (click)="onLoginSubmit()">Update</button>
+  </mz-modal-footer>
+</mz-modal>

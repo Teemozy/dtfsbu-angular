@@ -29,5 +29,6 @@ export class LoginComponent extends MzBaseModal {
       this.router.navigateByUrl('match');
       this.modalComponent.close();
     });
+    
   }
 }

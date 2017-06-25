@@ -11,6 +11,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { MatchComponent } from './components/match/match.component';
 import { ProfileCardComponent } from './components/profile-card/profile-card.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { WelcomeBoardComponent } from './components/welcome-board/welcome-board.component';
 
 //Serivces
@@ -20,6 +21,7 @@ import { ValidationService } from './services/validation.service';
 
 //Directives
 import { EqualValidateDirective } from './directives/equal-validate.directive';
+
 //External Libraries
 import { MaterializeModule } from 'ng2-materialize';
 
@@ -29,6 +31,7 @@ const appRoutes: Routes = [
   {path:'register', component: RegisterComponent},
   {path:'login', component: LoginComponent},
   {path:'match', component: MatchComponent},
+  {path:'profile', component: UserProfileComponent},
   {path:'welcomeboard', component: WelcomeBoardComponent,},
   {path: '', redirectTo: '/welcomeboard', pathMatch: 'full'}
 ];
@@ -42,8 +45,8 @@ const appRoutes: Routes = [
     LoginComponent,
     ProfileCardComponent,
     MatchComponent,
+    UserProfileComponent,
     EqualValidateDirective
-    
   ],
   imports: [
     BrowserModule,

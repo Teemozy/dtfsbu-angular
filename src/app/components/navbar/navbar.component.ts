@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router'
-import { MzModalService, MzToastService } from 'ng2-materialize';
 import { RegisterComponent } from '../register/register.component';
+
+//Modals
+import { MzModalService, MzToastService } from 'ng2-materialize';
 import { LoginComponent } from '../login/login.component';
+import { UserProfileComponent } from '../user-profile/user-profile.component';
 import { AuthenticationService } from '../../services/authentication.service';
 
 enum modalIndex  {
     register  = 0,
     login     = 1,
+    profile = 2
 }
 
 
@@ -37,6 +41,9 @@ export class NavbarComponent {
         break;
       case modalIndex.login:
         this.modalService.open(LoginComponent);
+        break;
+      case modalIndex.profile:
+        this.modalService.open(UserProfileComponent);
         break;
     }
  
