@@ -4,6 +4,7 @@
   Update Profile
   </mz-modal-header>
   <mz-modal-content>
+    <br>
 
     <div class="row">
       <div class="card">
@@ -13,13 +14,17 @@
       </div>
     </div>
 
-    <div class="input-field col s12">
-          <textarea id="textarea1" class="materialize-textarea"></textarea>
-          <label for="textarea1">Textarea</label>
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>File</span>
+        <input id= "photo" type="file">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
     </div>
-
   </mz-modal-content>
   <mz-modal-footer>
-    <button mz-button [flat]="true" (click)="onLoginSubmit()">Update</button>
+    <button mz-button [flat]="true" (click)="onUpdateSubmit()">Update</button>
   </mz-modal-footer>
 </mz-modal>

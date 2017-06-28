@@ -10,4 +10,8 @@ export class BackendService extends AuthenticationService{
     return this.authenticatedGet('/match').map(res => res.json());
   }
 
+  updateProfile(formData){
+    return this.authenticatedPost('/users/profile', formData).map(res => res.json());
+  }
+
 }
