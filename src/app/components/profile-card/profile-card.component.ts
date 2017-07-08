@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-profile-card',
@@ -7,11 +9,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ProfileCardComponent implements OnInit {
 
-  @Input() name:string;
-  @Input() description:string;
-  @Input() imgUrl:string;
+  @Input() name:any;
+  @Input() description:any;
+  @Input() imgUrl:any;
 
-  constructor() { }
+  safeImgUrl:any;
+
+  constructor(private sanitizer: DomSanitizer) {
+  }
 
   ngOnInit() {
   }

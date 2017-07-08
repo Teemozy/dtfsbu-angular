@@ -14,9 +14,6 @@ export class MatchComponent implements OnInit {
   ngOnInit() {
     this.backendService.getMatches().subscribe( data => {
       this.matches = data;
-      data.forEach(element => {
-        
-      });
     }, err => console.log(err));
   }
 
