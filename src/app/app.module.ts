@@ -29,6 +29,7 @@ import { MaterializeModule } from 'ng2-materialize';
 
 const appRoutes: Routes = [
   {path:'register', component: RegisterComponent},
+  {path:'login/:token', component: LoginComponent},
   {path:'login', component: LoginComponent},
   {path:'match', component: MatchComponent},
   {path:'profile', component: UserProfileComponent},

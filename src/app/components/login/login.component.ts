@@ -1,5 +1,5 @@
-import { Component} from '@angular/core';
-import { Router } from '@angular/router'
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router'
 import { MzBaseModal, MzModalComponent } from 'ng2-materialize';
 import { ValidationService } from '../../services/validation.service';
 import { AuthenticationService } from '../../services/authentication.service';
@@ -10,17 +10,29 @@ import { AuthenticationService } from '../../services/authentication.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent extends MzBaseModal {
+export class LoginComponent extends MzBaseModal implements OnInit {
 
   email: string;
   password: string;
 
   constructor(private validationService: ValidationService,
               private authenticationService: AuthenticationService,
-              private router: Router) { super(); }
+              private router: Router,
+              private activatedRoute: ActivatedRoute) { super(); }
 
 
-  onLoginSubmit(){
+  ngOnInit() {
+    this.activatedRoute.params.subscribe((params) => {
+      const token = params['token'];
+      if (token) {
+        localStorage.setItem('id_token', token);
+        this.router.navigateByUrl('profile');
+      }
+    });
+  }
+
+
+  onLoginSubmit() {
     const user = {
       "email": this.email,
       "password": this.password
@@ -29,6 +41,6 @@ export class LoginComponent extends MzBaseModal {
       this.router.navigateByUrl('match');
       this.modalComponent.close();
     });
-    
+
   }
 }

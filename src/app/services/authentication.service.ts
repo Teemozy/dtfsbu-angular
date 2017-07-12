@@ -81,8 +81,7 @@ export class AuthenticationService {
     let headers = new Headers();
     headers.append('token', localStorage.getItem('id_token'));
     headers.append('Content-Type', 'application/json');
- 
-    return this.http.post( backendUrl + url, data, { headers: headers});
+
+    return this.http.post( backendUrl + url, data, {headers: headers});
   }
-  
 }

@@ -11,7 +11,6 @@ import { AuthenticationService } from '../../services/authentication.service';
 enum modalIndex  {
     register  = 0,
     login     = 1,
-    profile = 2
 }
 
 
@@ -41,9 +40,6 @@ export class NavbarComponent {
         break;
       case modalIndex.login:
         this.modalService.open(LoginComponent);
-        break;
-      case modalIndex.profile:
-        this.modalService.open(UserProfileComponent);
         break;
     }
  

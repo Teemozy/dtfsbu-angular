@@ -1,30 +1,27 @@
+<div class = "container">
+  <h1>
+    Update Profile
+  </h1>
 
-<mz-modal [fixedFooter]="true" [options]="modalOptions">
-  <mz-modal-header>
-  Update Profile
-  </mz-modal-header>
-  <mz-modal-content>
-    <br>
-
-    <div class="row">
-      <div class="card">
-        <div class="card-image">
-          <img src="http://www.skyovnis.com/wp-content/uploads/2014/12/Profile-sky-ovnis.jpg">
-        </div>
+  <div class="row">
+    <div class="card">
+      <div class="card-image">
+        <img src="https://www.sparklabs.com/forum/styles/comboot/theme/images/default_avatar.jpg">
       </div>
     </div>
+  </div>
 
-    <div class="file-field input-field">
-      <div class="btn">
-        <span>File</span>
-        <input id= "photo" type="file">
-      </div>
-      <div class="file-path-wrapper">
-        <input class="file-path validate" type="text">
-      </div>
+  <div class="file-field input-field">
+    <div class="btn">
+      <span>File</span>
+      <input id= "photo" type="file">
     </div>
-  </mz-modal-content>
-  <mz-modal-footer>
-    <button mz-button [flat]="true" (click)="onUpdateSubmit()">Update</button>
-  </mz-modal-footer>
-</mz-modal>
+    <div class="file-path-wrapper">
+      <input class="file-path validate" type="text">
+    </div>
+  </div>
+
+
+  <button mz-button (click)="onUpdateSubmit()">Update</button>
+
+</div>
