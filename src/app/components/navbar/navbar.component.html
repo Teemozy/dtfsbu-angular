@@ -9,7 +9,7 @@
         <li><a class="waves-effect waves-light btn" (click)="openServiceModal(1);" *ngIf="!authenticationService.isLoggedIn()" >Login</a></li>
 
         <!-- Logged In-->
-        <li><a class="waves-effect waves-light btn" (click)="openServiceModal(2);" *ngIf="authenticationService.isLoggedIn()" >Profile</a></li>
+        <li><a class="waves-effect waves-light btn" routerLink="profile" *ngIf="authenticationService.isLoggedIn()" >Profile</a></li>
         <li><a class="waves-effect waves-light btn" (click)="logoutUser();" *ngIf="authenticationService.isLoggedIn()" >Logout</a></li>
       </ul>
 

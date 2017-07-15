@@ -37,7 +37,7 @@ export class AuthenticationService {
       //Check if we have token then save and callback
       let token = data.token;
       if(token){
-        this.saveUserData(token, user); 
+        this.saveUserData(token); 
         onLoginCallBack();
       }
     }, err =>  console.log(err));
@@ -45,15 +45,12 @@ export class AuthenticationService {
 
   logoutUser(){
     this.authToken = null;
-    this.user = null;
     localStorage.clear();
   }
 
-  saveUserData(token, user){
+  saveUserData(token){
     localStorage.setItem('id_token' , token);
-    localStorage.setItem('user', JSON.stringify(user));
     this.authToken = token;
-    this.user = user;
   }
 
   loadUserData(){

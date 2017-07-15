@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 //Components
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { HelperComponent } from './components/helper/helper.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { MatchComponent } from './components/match/match.component';
@@ -41,6 +42,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     NavbarComponent,
+    HelperComponent,
     WelcomeBoardComponent,
     RegisterComponent,
     LoginComponent,

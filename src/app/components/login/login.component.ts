@@ -38,6 +38,7 @@ export class LoginComponent extends MzBaseModal implements OnInit {
       "password": this.password
     }
     this.authenticationService.authenticateUser(user, () => {
+          console.log('WUH');
       this.router.navigateByUrl('match');
       this.modalComponent.close();
     });

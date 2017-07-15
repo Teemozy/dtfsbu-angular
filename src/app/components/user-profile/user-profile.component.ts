@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input  } from '@angular/core';
+import { Component, ElementRef, Input, OnInit  } from '@angular/core';
 import { Router } from '@angular/router'
 import { ValidationService } from '../../services/validation.service';
 import { BackendService } from '../../services/backend.service';
@@ -13,12 +13,27 @@ let URL = 'http://localhost:3000/users/profile'
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.css']
 })
-export class UserProfileComponent {
+export class UserProfileComponent implements OnInit{
 
   constructor(private backendService: BackendService,
-              private elementRef: ElementRef,
-              private http:Http ){ };
+            private elementRef: ElementRef,
+            private http:Http ){ };
 
+  name:any;
+  description:any;
+  imgUrl:any;
+
+
+  ngOnInit(){
+    this.backendService.getProfile().subscribe(data =>{
+      const user = data.user
+
+      this.name = user.firstName + ' ' + user.lastName;
+      this.imgUrl = 'http://localhost:3000/' + user.imgUrl;
+      console.log(user.imgUrl);
+
+    });
+  }
 
   onUpdateSubmit(){
      //locate the file element meant for the file upload.

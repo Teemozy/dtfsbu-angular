@@ -1,27 +1,55 @@
-<div class = "container">
-  <h1>
-    Update Profile
-  </h1>
+<br>
+<br>
 
+<div class="container">
   <div class="row">
-    <div class="card">
-      <div class="card-image">
-        <img src="https://www.sparklabs.com/forum/styles/comboot/theme/images/default_avatar.jpg">
+    <div class="col s3 m3">
+      <div class="card">
+        <div class="card-image">
+          <img src= {{imgUrl}}>
+          <div class = "edit-container"><i class="fa fa-pencil fa-2x edit-icon" aria-hidden="true"></i></div>
+        </div>
+        <div class="card-content">
+          <span class="card-title grey-text text-darken-4">{{name}}</span>
+          <p class="grey-text activator">{{description}} <i class="material-icons right">more_vert</i></p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">{{name}}<i class="material-icons right">close</i></span>
+          <p class="grey-text" >{{description}}</p>
+        </div>
+      </div>
+      <!--<div class="file-field input-field">
+        <div class="btn red">
+          <span>Disable Card</span>
+          <input id="photo" type="file">
+        </div>
+      </div>-->
+
+
+    </div>
+
+    <div class="col s9 m9">
+      <mz-select-container>
+        <select mz-select
+          [label]="'Match with'"
+          [placeholder]="'Gender'"
+          id="options-select"
+          multiple>
+            <option  class="left circle">Men</option>
+            <option  class="left circle">Women</option>
+        </select>
+      </mz-select-container>
+
+      <mz-textarea-container>
+          <textarea mz-textarea
+            [label]="'Description'"
+            id="description-textarea"
+            placeholder="Write something about yourself here"></textarea>
+      </mz-textarea-container>
+       <div class="row right-align">
+        <button mz-button (click)="onUpdateSubmit()" class="green">Update Profile</button>
       </div>
     </div>
   </div>
-
-  <div class="file-field input-field">
-    <div class="btn">
-      <span>File</span>
-      <input id= "photo" type="file">
-    </div>
-    <div class="file-path-wrapper">
-      <input class="file-path validate" type="text">
-    </div>
-  </div>
-
-
-  <button mz-button (click)="onUpdateSubmit()">Update</button>
-
+ 
 </div>

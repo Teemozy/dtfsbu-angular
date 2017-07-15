@@ -1,0 +1,18 @@
+.edit-icon {
+    color: #4caf50;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+
+.edit-container {
+    color: #4caf50;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.edit-container:hover{
+    color: rgba(0, 0, 0, .6);
+    background: rgba(0, 0, 0, .6);
+}
