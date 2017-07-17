@@ -77,7 +77,7 @@ export class AuthenticationService {
   authenticatedPost(url, data){
     let headers = new Headers();
     headers.append('token', localStorage.getItem('id_token'));
-    headers.append('Content-Type', 'application/json');
+    //headers.append('Content-Type', 'application/json');
 
     return this.http.post( backendUrl + url, data, {headers: headers});
   }

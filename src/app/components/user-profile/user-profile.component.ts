@@ -30,7 +30,7 @@ export class UserProfileComponent implements OnInit{
 
       this.name = user.firstName + ' ' + user.lastName;
       this.imgUrl = 'http://localhost:3000/' + user.imgUrl;
-      console.log(user.imgUrl);
+      console.log(user);
 
     });
   }
@@ -48,12 +48,12 @@ export class UserProfileComponent implements OnInit{
           alert(data.msg);
         });
 
-        let headers = new Headers();
-        headers.append('token', localStorage.getItem('id_token'));
-        // headers.append('Content-Type', 'application/json');
-        this.http.post(URL, formData, {headers: headers}).map(res => res.json()).subscribe(data => {
-          alert(data.msg);
-        });      
+        // let headers = new Headers();
+        // headers.append('token', localStorage.getItem('id_token'));
+        // // headers.append('Content-Type', 'application/json');
+        // this.http.post(URL, formData, {headers: headers}).map(res => res.json()).subscribe(data => {
+        //   alert(data.msg);
+        // });      
     }
   }
 }
