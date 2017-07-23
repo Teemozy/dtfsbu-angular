@@ -15,7 +15,7 @@ import { ProfileCardComponent } from './components/profile-card/profile-card.com
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { WelcomeBoardComponent } from './components/welcome-board/welcome-board.component';
 import { ImageAdjustComponent } from './components/image-adjust/image-adjust.component';
-import { ImageCropperComponent } from './components/image-cropper/image-cropper.component';
+//import { ImageCropperComponent } from './components/image-cropper/image-cropper.component';
 
 //Serivces
 import { AuthenticationService } from './services/authentication.service';
@@ -27,7 +27,7 @@ import { EqualValidateDirective } from './directives/equal-validate.directive';
 
 //External Libraries
 import { MaterializeModule } from 'ng2-materialize';
-import { ImageCropperModule } from 'ng2-img-cropper';
+import { ImageCropperModule } from '../image-cropper/image-cropper.module';
 
 
 
@@ -54,10 +54,9 @@ const appRoutes: Routes = [
     MatchComponent,
     UserProfileComponent,
     EqualValidateDirective,
-    ImageAdjustComponent,
-    ImageCropperComponent
+    ImageAdjustComponent
   ],
-  imports: [
+  imports: [ 
     BrowserModule,
     FormsModule,
     HttpModule,
