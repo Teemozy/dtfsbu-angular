@@ -2,9 +2,11 @@ import { Component, ElementRef, Input, OnInit  } from '@angular/core';
 import { Router } from '@angular/router'
 import { ValidationService } from '../../services/validation.service';
 import { BackendService } from '../../services/backend.service';
+import { ImageAdjustComponent } from '../image-adjust/image-adjust.component';
 
-//TEMP
-import { Http, Headers } from '@angular/http';
+import { ImageCropperComponent, CropperSettings } from 'ng2-img-cropper';
+import { MzModalService } from 'ng2-materialize';
+
 
 let URL = 'http://localhost:3000/users/profile'
 
@@ -16,12 +18,28 @@ let URL = 'http://localhost:3000/users/profile'
 export class UserProfileComponent implements OnInit{
 
   constructor(private backendService: BackendService,
-            private elementRef: ElementRef,
-            private http:Http ){ };
+              private elementRef: ElementRef,
+              private modalService: MzModalService){ 
+
+    this.cropperSettings = new CropperSettings();
+    this.cropperSettings.width = 100;
+    this.cropperSettings.height = 100;
+    this.cropperSettings.croppedWidth =100;
+    this.cropperSettings.croppedHeight = 100;
+    this.cropperSettings.canvasWidth = 300;
+    this.cropperSettings.canvasHeight = 300;
+
+    this.data = {};
+  };
 
   name:any;
   description:any;
   imgUrl:any;
+
+  data: any;
+  cropperSettings: CropperSettings;
+
+
 
 
   ngOnInit(){
@@ -35,25 +53,23 @@ export class UserProfileComponent implements OnInit{
     });
   }
 
+  openImageCropper(){
+    this.modalService.open(ImageAdjustComponent);
+  }
+
   onUpdateSubmit(){
      //locate the file element meant for the file upload.
     let inputElement: HTMLInputElement = this.elementRef.nativeElement.querySelector('#photo');
     let fileCount: number = inputElement.files.length;
     let formData = new FormData();
 
+    console.log(inputElement.files.item(0));
 
     if (fileCount > 0) { 
         formData.append('userPhoto', inputElement.files.item(0));
-        this.backendService.updateProfile(formData).subscribe(data =>{
+        this.backendService.updateProfilePhoto(formData).subscribe(data =>{
           alert(data.msg);
-        });
-
-        // let headers = new Headers();
-        // headers.append('token', localStorage.getItem('id_token'));
-        // // headers.append('Content-Type', 'application/json');
-        // this.http.post(URL, formData, {headers: headers}).map(res => res.json()).subscribe(data => {
-        //   alert(data.msg);
-        // });      
+        });   
     }
   }
 }

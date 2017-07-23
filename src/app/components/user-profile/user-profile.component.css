@@ -12,7 +12,12 @@
     z-index: 10;
 }
 
-.edit-container:hover{
-    color: rgba(0, 0, 0, .6);
-    background: rgba(0, 0, 0, .6);
+
+.image-upload > input
+{
+    display: none;
+}
+
+.image-upload:hover {
+    color: rgba(255, 255, 255, 100)
 }

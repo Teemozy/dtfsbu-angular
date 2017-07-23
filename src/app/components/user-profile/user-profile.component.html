@@ -7,7 +7,7 @@
       <div class="card">
 
         <div class="card-image">
-          <img src= {{imgUrl}}>
+          <img src= {{imgUrl}} (click)= "openImageCropper()">
           <div class = "edit-container"><i class="fa fa-pencil fa-2x edit-icon" aria-hidden="true"></i></div>
         </div>
 
@@ -22,18 +22,10 @@
         </div>
 
       </div>
-      
-      <div class="file-field input-field">
-        <div class="btn red">
-          <!--<span>Disable Card</span>-->
-          <input id="photo" type="file">
-        </div>
-      </div>
-
-
     </div>
 
     <div class="col s9 m9">
+
       <mz-select-container>
         <select mz-select
           [label]="'Match with'"
