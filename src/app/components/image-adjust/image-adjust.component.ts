@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { MzBaseModal, MzModalComponent } from 'ng2-materialize';
-import { ImageCropperComponent, CropperSettings } from 'ng2-img-cropper';
+// import { ImageCropperComponent, CropperSettings } from 'ng2-img-cropper';
 import { BackendService } from '../../services/backend.service';
 
 @Component({

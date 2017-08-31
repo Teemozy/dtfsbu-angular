@@ -4,7 +4,7 @@ import { ValidationService } from '../../services/validation.service';
 import { BackendService } from '../../services/backend.service';
 import { ImageAdjustComponent } from '../image-adjust/image-adjust.component';
 
-import { ImageCropperComponent, CropperSettings } from 'ng2-img-cropper';
+// import { ImageCropperComponent, CropperSettings } from 'ng2-img-cropper';
 import { MzModalService } from 'ng2-materialize';
 
 
@@ -20,16 +20,6 @@ export class UserProfileComponent implements OnInit{
   constructor(private backendService: BackendService,
               private elementRef: ElementRef,
               private modalService: MzModalService){ 
-
-    this.cropperSettings = new CropperSettings();
-    this.cropperSettings.width = 100;
-    this.cropperSettings.height = 100;
-    this.cropperSettings.croppedWidth =100;
-    this.cropperSettings.croppedHeight = 100;
-    this.cropperSettings.canvasWidth = 300;
-    this.cropperSettings.canvasHeight = 300;
-
-    this.data = {};
   };
 
   name:any;
@@ -37,10 +27,6 @@ export class UserProfileComponent implements OnInit{
   imgUrl:any;
 
   data: any;
-  cropperSettings: CropperSettings;
-
-
-
 
   ngOnInit(){
     this.backendService.getProfile().subscribe(data =>{
@@ -58,19 +44,19 @@ export class UserProfileComponent implements OnInit{
   }
 
   onUpdateSubmit(){
-     //locate the file element meant for the file upload.
-    let inputElement: HTMLInputElement = this.elementRef.nativeElement.querySelector('#photo');
-    let fileCount: number = inputElement.files.length;
-    let formData = new FormData();
+    //  //locate the file element meant for the file upload.
+    // let inputElement: HTMLInputElement = this.elementRef.nativeElement.querySelector('#photo');
+    // let fileCount: number = inputElement.files.length;
+    // let formData = new FormData();
 
-    console.log(inputElement.files.item(0));
+    // console.log(inputElement.files.item(0));
 
-    if (fileCount > 0) { 
-        formData.append('userPhoto', inputElement.files.item(0));
-        this.backendService.updateProfilePhoto(formData).subscribe(data =>{
-          alert(data.msg);
-        });   
-    }
+    // if (fileCount > 0) { 
+    //     formData.append('userPhoto', inputElement.files.item(0));
+    //     this.backendService.updateProfilePhoto(formData).subscribe(data =>{
+    //       alert(data.msg);
+    //     });   
+    // }
   }
 }
   
