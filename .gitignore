@@ -38,7 +38,3 @@ testem.log
 #System Files
 .DS_Store
 Thumbs.db
-
-
-#Image Cropper module
-#/src/image-cropper
