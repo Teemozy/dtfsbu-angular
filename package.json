@@ -26,6 +26,7 @@
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
     "mdi": "^1.9.33",
+    "ng2-canvas-image-cropper": "^0.5.0",
     "ng2-materialize": "^1.4.1",
     "rxjs": "^5.0.1",
     "ts-helpers": "^1.1.1",

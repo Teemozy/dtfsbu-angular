@@ -27,7 +27,7 @@ import { EqualValidateDirective } from './directives/equal-validate.directive';
 
 //External Libraries
 import { MaterializeModule } from 'ng2-materialize';
-import { ImageCropperModule } from '../image-cropper/image-cropper.module';
+import { ImageCropperModule } from 'ng2-canvas-image-cropper/image-cropper.module';
 
 
 
