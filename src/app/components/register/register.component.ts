@@ -41,6 +41,12 @@ export class RegisterComponent extends MzBaseModal{
       "gender": this.gender
     }
 
+    if (this.email ==="aakash.tripathi@stonybrook.edu")
+    {
+      alert("NO");
+      return
+    }
+
     this.validationService.validateRegisterFields(user, (err) => {
       if(err) throw err;
     });

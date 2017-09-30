@@ -1,26 +1,21 @@
-<mz-modal [fixedFooter]="true" [options]="modalOptions">
-  <mz-modal-header>
-  Change Profile Picture
-  </mz-modal-header>
-  <mz-modal-content>
-
-  <!--<img-cropper [image]="data" [settings]="cropperSettings"></img-cropper>-->
-  <app-image-cropper [inputImage] = "imageData"></app-image-cropper>
-
-
+<div class = "image-cropper-modal">
+  <app-image-cropper [inputImage] = "imageData" #imageCropper></app-image-cropper>
   <div class="file-field input-field">
     <div class="btn">
       <span>File</span>
       <input id= "photo" type="file" accept="image/*" (change)="onFileChanged($event)">
     </div>
-    <div class="file-path-wrapper">
-      <input class="file-path validate" type="text">
+    <div class="row">
+      <div class="col s3 m3">
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
+
+        <button class="btn waves-effect waves-light" type="submit" (click) = "onSubmitImage()" name="action">Submit
+          <i class="material-icons right">send</i>
+        </button>
     </div>
   </div>
+</div>
 
-
-  </mz-modal-content>
-  <mz-modal-footer>
-    <button mz-button [flat]="true" (click)="onSubmitImage()" >Submit</button>
-  </mz-modal-footer>
-</mz-modal>

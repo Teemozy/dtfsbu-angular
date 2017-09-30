@@ -40,7 +40,7 @@ export class UserProfileComponent implements OnInit{
   }
 
   openImageCropper(){
-    this.modalService.open(ImageAdjustComponent);
+    //this.modalService.open(ImageAdjustComponent);
   }
 
   onUpdateSubmit(){
@@ -57,6 +57,8 @@ export class UserProfileComponent implements OnInit{
     //       alert(data.msg);
     //     });   
     // }
+    //this.description = match.description;
+    
   }
 }
   
