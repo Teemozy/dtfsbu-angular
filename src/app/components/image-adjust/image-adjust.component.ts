@@ -30,20 +30,6 @@ export class ImageAdjustComponent implements OnInit  {
 
   onSubmitImage(){
 
-    
-    // // //locate the file element meant for the file upload.
-    // let inputElement: HTMLInputElement = this.elementRef.nativeElement.querySelector('#photo');
-    // let fileCount: number = inputElement.files.length;
-    // let formData = new FormData();
-    // formData.append('userPhoto', inputElement.files.item(0));
-
-    // console.log(this.data);
-    // console.log(inputElement.files.item(0));
-    // formData.append('userPhoto', this.data);
-    
-    // this.backendService.updateProfilePhoto(formData).subscribe(data =>{
-    //   alert(data.msg);
-    // });
 
      //locate the file element meant for the file upload.
     let inputElement: HTMLInputElement = this.elementRef.nativeElement.querySelector('#photo');
